@@ -28,7 +28,6 @@ paddle_b.goto(350, 0) # Konumunu belirlemek icin kullaniyoruz - Normalde tam ort
 
 
 # Ball
-
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("square") # seklinin kare olmasini saglar
@@ -36,8 +35,8 @@ ball.color("blue") # renk ayarlama
 ball.penup()
 ball.goto(0, 0) # Konumunu belirlemek icin kullaniyoruz - Normalde tam ortadan basliyor
 
-ball.dx = 0.2 # bu topun her hareketinde 2 birimlik yer degistirecegini gosteriyor
-ball.dy = 0.2 # burada ayni zamanda y ekseninde 2 birim hareket etmesi gerektigini tanimladik yani capraz gider
+ball.dx = 0.5 # bu topun her hareketinde 2 birimlik yer degistirecegini gosteriyor
+ball.dy = 0.5 # burada ayni zamanda y ekseninde 2 birim hareket etmesi gerektigini tanimladik yani capraz gider
 
 
 # Simdiyaptigimiz seyleri hareket ettirmenin zamani geldi
