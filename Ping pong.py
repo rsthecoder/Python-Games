@@ -1,3 +1,7 @@
+# Pong Game
+# by @kerim
+# Add Sound - https://youtu.be/XGf2GcyHPhc?t=2383
+
 import turtle
 
 wn = turtle.Screen()
@@ -6,7 +10,10 @@ wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
 
-
+# Score
+score_a = 0
+score_b = 0
+ 
 # Paddle A
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
@@ -31,16 +38,25 @@ paddle_b.goto(350, 0) # Konumunu belirlemek icin kullaniyoruz - Normalde tam ort
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("square") # seklinin kare olmasini saglar
-ball.color("blue") # renk ayarlama
+ball.color("white") # renk ayarlama
 ball.penup()
 ball.goto(0, 0) # Konumunu belirlemek icin kullaniyoruz - Normalde tam ortadan basliyor
 
-ball.dx = 0.5 # bu topun her hareketinde 2 birimlik yer degistirecegini gosteriyor
-ball.dy = 0.5 # burada ayni zamanda y ekseninde 2 birim hareket etmesi gerektigini tanimladik yani capraz gider
+ball.dx = 0.1 # bu topun her hareketinde 2 birimlik yer degistirecegini gosteriyor
+ball.dy = 0.1 # burada ayni zamanda y ekseninde 2 birim hareket etmesi gerektigini tanimladik yani capraz gider
+
+# Scoreboard ekrana yazdirma
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Player A: 0   Player B: 0", font=("Courier", 20, "normal"), align="center")
 
 
 # Simdiyaptigimiz seyleri hareket ettirmenin zamani geldi
-# Function
+# Function - Paddlerin hareket etmelerini saglayan fonksiyonlar
 def paddle_a_up():
     y = paddle_a.ycor()
     y += 20
@@ -83,21 +99,30 @@ while True:
     ball.sety(ball.ycor() + ball.dy)
 
     # Border check
-    if ball.ycor() > 290: # Eger ball in konumu 290 dan buyuk ise
+
+    # Topun Yukari ve asagi tarafa yonelik hareketerline sinirlar ve kurallarin belirlenmesi
+    if ball.ycor() > 290: # Eger ball in y koordinati 290 dan buyuk ise
         ball.sety(290) # Ball in y kordinatini 290 a esitle ve *= -1 ile -> ters yonde devam etmesini sagla
-        ball.dy *= -1
+        ball.dy *= -1 # burada ters yonde hareket etmesini sagliyoruz
 
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
 
+    # Topun Sag ve sol tarafa yonelik hareketlerine sinirlar ve kurallarin belirlenmesi
     if ball.xcor() > 390: # bu sinirlarin disina cikarsa ortadan basla ve ters yonde devam et
         ball.goto(0, 0)
         ball.dx *= -1
+        score_a += 1
+        pen.clear()
+        pen.write("Player A: {}   Player B: {}".format(score_a, score_b), font=("Courier", 20, "normal"), align="center")
 
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_b += 1
+        pen.clear()
+        pen.write("Player A: {}   Player B: {}".format(score_a, score_b), font=("Courier", 20, "normal"), align="center")
 
     #Paddle en Ball collisions - Top ile raket in etkilesime girmesi
     if (ball.xcor() > 340 and ball.xcor() < 350 ) and (ball.ycor() < paddle_b.ycor() +40 and ball.ycor() > paddle_b.ycor() -50):
@@ -107,5 +132,20 @@ while True:
     if (ball.xcor() < -340 and ball.xcor() > -350 ) and (ball.ycor() < paddle_a.ycor() +40 and ball.ycor() > paddle_a.ycor() -50):
         ball.setx(-340)
         ball.dx *= -1
+    
+
+    # Scoreboard a yonelik islemler
+    if score_a == 5:
+        pen.clear()
+        pen.write("Player A won!", font=("Courier", 20, "normal"), align="center")
+        score_a = 0
+        score_b = 0
+        
+    elif score_b == 5:
+        pen.clear()
+        pen.write("Player B won!", font=("Courier", 20, "normal"), align="center")
+        score_a = 0
+        score_b = 0
+        
 
 
