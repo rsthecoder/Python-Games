@@ -1,0 +1,62 @@
+git init # degisikliklerin takip edilmesi icin localdeki dosyada bu init yapiyoruz - Git baslatiyoruz
+
+Herhangi bir dosyada degisiklik yaptiktan sonra tekrar Github'da guncelleme islemlerini yapiyoruz
+
+cd Desktop/Python\ Games/    -> Git bash ile Kodlarimizin oldugu klasore geciyoruz
+
+
+
+git status 	-> Bu komut ile mevcut durumu sorguluyoruz (Her islemden sonra yapmak iyi kontrol amacli)
+----------
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Don't drop the Ball v2.0.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+----------
+
+
+
+git add .   -> Yapilan degisiklikler commit icin eklenir (nokta unutma - hepsini anlamina gelir)
+
+
+git status -> Tekrar bakiyoruz hazir mi diye
+
+
+git commit -m "feat(dont-drop-the-ball-v2.0): Change paddle speed"
+   	      -> Feat = feature (Parantez icine hangi dosyada degisiklik yapildigi)
+	      -> Sonrasinda Add - Change gibi direk fiilin yalin hali ve ne oldugu yazilir
+	      ->  hepsi prensip olarak kucuk harfle yazilir
+
+
+
+git status -> tekrar kontrol ve burada origin brachtan bir commit onde oldugumuzu soyluyor
+----------
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+----------
+
+
+
+
+git push    -> Bu komut ile yapilan degisiklikler uzaktaki repo ya aktarilmis olur
+
+
+git branch -la -> Mevcut branch listesini gosterir
+git checkout main -> Baska bir branch a gecis icin kullanilir
+git show     -> mevcut git durumunu hesabi gosterir - kodda yapilan degisiklikleri gosterir
+git fetch    -> uzak repo daki (commit-brach) isimleri gibi degisiklikleri alir - Localdaki dosya DEGISMEZ
+git push     -> uzak repodaki herseyi locale ceker ve dosyalari da degistirir
+
+
+ 
+
