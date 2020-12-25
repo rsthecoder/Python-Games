@@ -73,12 +73,12 @@ pen.write("Don't drop the Ball - Created by Kerim Sak", font=("Courier", 18, "bo
 # Oncelikle bir fonksiyon yardimi ile paddle in x kordinatini her defasinda saga kaydiracak bir fonksiyon yaziyoruz - Sonra listenera ekleyecegiz
 def paddle_right():
     x = paddle.xcor()
-    x += 70
+    x += 75
     paddle.setx(x)
 
 def paddle_left():
     x = paddle.xcor()
-    x -= 70
+    x -= 75
     paddle.setx(x)
 
 
