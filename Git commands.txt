@@ -60,6 +60,6 @@ git checkout main -> Baska bir branch a gecis icin kullanilir
 git show     -> mevcut git durumunu hesabi gosterir - kodda yapilan degisiklikleri gosterir
 git fetch    -> uzak repo daki (commit-brach) isimleri gibi degisiklikleri alir - Localdaki dosya DEGISMEZ
 git push     -> uzak repodaki herseyi locale ceker ve dosyalari da degistirir
-git 
+git push -f origin master   -> -f Force -> Remote a zorla yukler
  
 
