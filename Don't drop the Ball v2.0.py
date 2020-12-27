@@ -41,8 +41,6 @@ paddle.shapesize(stretch_wid=1, stretch_len=7)
 paddle.penup() # Bu komut hareket ettiginde olusan cizgilerin olmamasini saglar
 paddle.goto(0, -350)
 
-
-
 #Ball
 ball = turtle.Turtle()
 ball.shape("square")
@@ -119,7 +117,7 @@ while True:
         ball.dy *= -1
 
     # Top ile Paddle etikilesime girmesi
-    if (ball.ycor() < -340 and ball.ycor() > -350) and (ball.xcor() < paddle.xcor() + 60 + 5  and ball.xcor() > paddle.xcor() - 60 -5 ):
+    if (ball.ycor() < -340 and ball.ycor() > -350) and (ball.xcor() < paddle.xcor() + 70  and ball.xcor() > paddle.xcor() - 70):
         ball.sety(-340)
         ball.dy *= -1
         
